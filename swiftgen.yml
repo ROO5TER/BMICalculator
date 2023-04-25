@@ -1,0 +1,23 @@
+strings:
+  - inputs: BMICalculator/Resources/Strings/en.lproj
+    filter: .+.strings$
+    outputs:
+      - templateName: structured-swift5
+        output: BMICalculator/Resources/Strings/Localizable.generated.swift
+        params:
+            enumName: Localizable
+xcassets:
+  - inputs: BMICalculator/Resources/Assets/Assets.xcassets
+    outputs:
+      - templateName: swift5
+        output: BMICalculator/Resources/Assets/SharedAsset.generated.swift
+        params:
+            publicAccess:
+            enumName: SharedAsset
+  - inputs: BMICalculator/Resources/Colors/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        output: BMICalculator/Resources/Colors/SharedColor.generated.swift
+        params:
+            publicAccess:
+            enumName: SharedColor
