@@ -26,6 +26,7 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 public enum SharedAsset {
   public static let accentColor = ColorAsset(name: "AccentColor")
   public static let background = ImageAsset(name: "Background")
+  public static let buttonBackground = ImageAsset(name: "ButtonBackground")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
