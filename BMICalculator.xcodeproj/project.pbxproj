@@ -16,6 +16,8 @@
 		184A2D4729F841F500033C85 /* Localizable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A2D4629F841F500033C85 /* Localizable.generated.swift */; };
 		184A2D4929F8444900033C85 /* SharedAsset.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A2D4829F8444900033C85 /* SharedAsset.generated.swift */; };
 		184A2D4C29F849B000033C85 /* BMIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A2D4B29F849B000033C85 /* BMIButton.swift */; };
+		186C3D3729F9628C008A722C /* BMISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C3D3629F9628C008A722C /* BMISlider.swift */; };
+		189C2B5729FC24CD0015CF51 /* BMISliderLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		184A2D4629F841F500033C85 /* Localizable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.generated.swift; sourceTree = "<group>"; };
 		184A2D4829F8444900033C85 /* SharedAsset.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedAsset.generated.swift; sourceTree = "<group>"; };
 		184A2D4B29F849B000033C85 /* BMIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIButton.swift; sourceTree = "<group>"; };
+		186C3D3629F9628C008A722C /* BMISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISlider.swift; sourceTree = "<group>"; };
+		189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISliderLabels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				184A2D4B29F849B000033C85 /* BMIButton.swift */,
+				186C3D3629F9628C008A722C /* BMISlider.swift */,
+				189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -186,9 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189C2B5729FC24CD0015CF51 /* BMISliderLabels.swift in Sources */,
 				07427D5629E97AE9009A6A72 /* MainViewController.swift in Sources */,
 				184A2D4729F841F500033C85 /* Localizable.generated.swift in Sources */,
 				07427D5229E97AE9009A6A72 /* AppDelegate.swift in Sources */,
+				186C3D3729F9628C008A722C /* BMISlider.swift in Sources */,
 				184A2D4929F8444900033C85 /* SharedAsset.generated.swift in Sources */,
 				184A2D4C29F849B000033C85 /* BMIButton.swift in Sources */,
 				07427D5429E97AE9009A6A72 /* SceneDelegate.swift in Sources */,

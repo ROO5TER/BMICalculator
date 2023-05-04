@@ -14,7 +14,7 @@ struct BMIButtonViewModel {
 
 final class BMIButton: UIButton {
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupStyling()
     }
@@ -23,15 +23,15 @@ final class BMIButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupStyling() {
+        titleLabel?.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        setBackgroundImage(SharedAsset.buttonBackground.image, for: .normal)
+        layer.cornerRadius = 10
+        clipsToBounds = true
+    }
+    
     func configure(viewModel: BMIButtonViewModel) {
         setTitle(viewModel.title, for: .normal)
         addTarget(BMIButton(), action: viewModel.action, for: .touchUpInside)
-    }
-    
-    private func setupStyling() {
-        setBackgroundImage(SharedAsset.buttonBackground.image, for: .normal)
-        clipsToBounds = true
-        layer.cornerRadius = 10
-        titleLabel?.font = UIFont.systemFont(ofSize: 26, weight: .bold)
     }
 }

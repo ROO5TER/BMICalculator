@@ -16,6 +16,18 @@ internal enum Localizable {
     /// 
     ///   Created by Łukasz Skopiński on 25/04/2023.
     internal static let buttonTitle = Localizable.tr("Localizable", "mainViewController.buttonTitle", fallback: "Calculate")
+    /// Height
+    internal static let lefttLowerText = Localizable.tr("Localizable", "mainViewController.lefttLowerText", fallback: "Height")
+    /// Weight
+    internal static let leftUpperText = Localizable.tr("Localizable", "mainViewController.leftUpperText", fallback: "Weight")
+    /// %f cm
+    internal static func rightLowerText(_ p1: Float) -> String {
+      return Localizable.tr("Localizable", "mainViewController.rightLowerText", p1, fallback: "%f cm")
+    }
+    /// %f kg
+    internal static func rightUpperText(_ p1: Float) -> String {
+      return Localizable.tr("Localizable", "mainViewController.rightUpperText", p1, fallback: "%f kg")
+    }
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
