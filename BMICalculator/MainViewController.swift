@@ -23,8 +23,20 @@ class MainViewController: UIViewController {
         addConstraints()
     }
     
-    @objc func sliderMoves(_ sender: UISlider!) {
-        print("\(round(sender.value))")
+    @objc func upperSliderMoves(_ sender: UISlider!) {
+        let roundedValue = String(format: "%.2f", sender.value)
+        upperSliderLabels.configure(viewModel: .init(
+            leftSideText: Localizable.MainViewController.leftUpperText,
+            rightSideText: Localizable.MainViewController.rightUpperText(roundedValue)
+        ))
+    }
+    
+    @objc func lowerSliderMoves(_ sender: UISlider!) {
+        let roundedValue = String(format: "%.2f", sender.value)
+        lowerSliderLabels.configure(viewModel: .init(
+            leftSideText: Localizable.MainViewController.lefttLowerText,
+            rightSideText: Localizable.MainViewController.rightLowerText(roundedValue)
+        ))
     }
     
     @objc func buttonTapped() {
@@ -44,21 +56,21 @@ class MainViewController: UIViewController {
         ))
         
         upperSlider.configure(viewModel: .init(
-            action: #selector(sliderMoves)
+            action: #selector(upperSliderMoves)
         ))
         
         lowerSlider.configure(viewModel: .init(
-            action: #selector(sliderMoves)
+            action: #selector(lowerSliderMoves)
         ))
         
         upperSliderLabels.configure(viewModel: .init(
             leftSideText: Localizable.MainViewController.leftUpperText,
-            rightSideText: Localizable.MainViewController.rightUpperText(100) // 100 is starting value for slider
+            rightSideText: Localizable.MainViewController.rightUpperText("100")
         ))
         
         lowerSliderLabels.configure(viewModel: .init(
             leftSideText: Localizable.MainViewController.lefttLowerText,
-            rightSideText: Localizable.MainViewController.rightLowerText(100)
+            rightSideText: Localizable.MainViewController.rightLowerText("100")
         ))
     }
     

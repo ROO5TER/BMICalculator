@@ -8,6 +8,6 @@
 
 "mainViewController.buttonTitle" = "Calculate";
 "mainViewController.leftUpperText" = "Weight";
-"mainViewController.rightUpperText" = "%f kg";
+"mainViewController.rightUpperText" = "%s kg";
 "mainViewController.lefttLowerText" = "Height";
-"mainViewController.rightLowerText" = "%f cm";
+"mainViewController.rightLowerText" = "%s cm";

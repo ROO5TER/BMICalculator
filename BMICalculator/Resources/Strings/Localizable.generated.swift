@@ -20,13 +20,13 @@ internal enum Localizable {
     internal static let lefttLowerText = Localizable.tr("Localizable", "mainViewController.lefttLowerText", fallback: "Height")
     /// Weight
     internal static let leftUpperText = Localizable.tr("Localizable", "mainViewController.leftUpperText", fallback: "Weight")
-    /// %f cm
-    internal static func rightLowerText(_ p1: Float) -> String {
-      return Localizable.tr("Localizable", "mainViewController.rightLowerText", p1, fallback: "%f cm")
+    /// %s cm
+    internal static func rightLowerText(_ p1: UnsafePointer<CChar>) -> String {
+      return Localizable.tr("Localizable", "mainViewController.rightLowerText", p1, fallback: "%s cm")
     }
-    /// %f kg
-    internal static func rightUpperText(_ p1: Float) -> String {
-      return Localizable.tr("Localizable", "mainViewController.rightUpperText", p1, fallback: "%f kg")
+    /// %s kg
+    internal static func rightUpperText(_ p1: UnsafePointer<CChar>) -> String {
+      return Localizable.tr("Localizable", "mainViewController.rightUpperText", p1, fallback: "%s kg")
     }
   }
 }
