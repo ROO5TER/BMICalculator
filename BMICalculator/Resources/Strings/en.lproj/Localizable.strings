@@ -11,3 +11,4 @@
 "mainViewController.rightUpperText" = "%s kg";
 "mainViewController.lefttLowerText" = "Height";
 "mainViewController.rightLowerText" = "%s cm";
+"mainViewController.titleLabelText" = "Calculate your BMI";

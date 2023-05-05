@@ -18,6 +18,7 @@
 		184A2D4C29F849B000033C85 /* BMIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A2D4B29F849B000033C85 /* BMIButton.swift */; };
 		186C3D3729F9628C008A722C /* BMISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C3D3629F9628C008A722C /* BMISlider.swift */; };
 		189C2B5729FC24CD0015CF51 /* BMISliderLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */; };
+		18EA3F7F2A0562D2000B070B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		184A2D4B29F849B000033C85 /* BMIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIButton.swift; sourceTree = "<group>"; };
 		186C3D3629F9628C008A722C /* BMISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISlider.swift; sourceTree = "<group>"; };
 		189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISliderLabels.swift; sourceTree = "<group>"; };
+		18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		07427D5029E97AE9009A6A72 /* BMICalculator */ = {
 			isa = PBXGroup;
 			children = (
+				18EA3F7D2A0562B9000B070B /* Services */,
 				184A2D4A29F8493400033C85 /* Common */,
 				184A2D3B29F83E7800033C85 /* Resources */,
 				07427D5129E97AE9009A6A72 /* AppDelegate.swift */,
@@ -120,6 +123,14 @@
 				189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		18EA3F7D2A0562B9000B070B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 				186C3D3729F9628C008A722C /* BMISlider.swift in Sources */,
 				184A2D4929F8444900033C85 /* SharedAsset.generated.swift in Sources */,
 				184A2D4C29F849B000033C85 /* BMIButton.swift in Sources */,
+				18EA3F7F2A0562D2000B070B /* UIViewExtensions.swift in Sources */,
 				07427D5429E97AE9009A6A72 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,6 +31,7 @@ final class BMISliderLabels: UIView {
         setupStackViewStyling()
         setupLeftSideLabelStyling()
         setupRightSideLabelStyling()
+        addShadow(color: .purple)
     }
     
     private func setupStackViewStyling() {
@@ -39,13 +40,13 @@ final class BMISliderLabels: UIView {
     }
     
     private func setupLeftSideLabelStyling() {
-        leftSideLabel.font = .systemFont(ofSize: 20, weight: .regular)
+        leftSideLabel.font = .systemFont(ofSize: 25, weight: .regular)
         leftSideLabel.textColor = .white
         leftSideLabel.shadowColor = .black
     }
     
     private func setupRightSideLabelStyling() {
-        rightSideLabel.font = .systemFont(ofSize: 20, weight: .regular)
+        rightSideLabel.font = .systemFont(ofSize: 25, weight: .regular)
         rightSideLabel.textColor = .white
         rightSideLabel.shadowColor = .black
         rightSideLabel.textAlignment = .right

@@ -28,6 +28,8 @@ internal enum Localizable {
     internal static func rightUpperText(_ p1: UnsafePointer<CChar>) -> String {
       return Localizable.tr("Localizable", "mainViewController.rightUpperText", p1, fallback: "%s kg")
     }
+    /// Calculate your BMI
+    internal static let titleLabelText = Localizable.tr("Localizable", "mainViewController.titleLabelText", fallback: "Calculate your BMI")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

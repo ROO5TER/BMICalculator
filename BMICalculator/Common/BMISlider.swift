@@ -32,6 +32,7 @@ final class BMISlider: UISlider {
         minimumValue = 0
         maximumValue = 200
         value = 100
+        addShadow(color: .white)
     }
     
     func configure(viewModel: BMISliderViewModel) {
