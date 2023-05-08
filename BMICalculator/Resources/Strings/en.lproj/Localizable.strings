@@ -5,6 +5,7 @@
   Created by Łukasz Skopiński on 25/04/2023.
   
 */
+//MARK: MainViewController
 
 "mainViewController.buttonTitle" = "Calculate";
 "mainViewController.leftUpperText" = "Weight";
@@ -12,3 +13,8 @@
 "mainViewController.lefttLowerText" = "Height";
 "mainViewController.rightLowerText" = "%s cm";
 "mainViewController.titleLabelText" = "Calculate your BMI";
+
+//MARK: ResultViewController
+
+"resultViewController.buttonTitle" = "Recalculate";
+"resultViewController.tittleLabel" = "Your Result";

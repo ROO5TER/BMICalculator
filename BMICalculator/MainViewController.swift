@@ -8,6 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    private let bmiService = BMIService()
     private let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
     private let mainViewIcon = UIImageView()
     private let titleLabel = UILabel()
@@ -26,7 +27,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func upperSliderMoves(_ sender: UISlider!) {
-        let roundedValue = String(format: "%.2f", sender.value)
+        let roundedValue = bmiService.roundToTwoDecimalPlaces(value: sender.value)
         upperSliderLabels.configure(viewModel: .init(
             leftSideText: Localizable.MainViewController.leftUpperText,
             rightSideText: Localizable.MainViewController.rightUpperText(roundedValue)
@@ -34,7 +35,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func lowerSliderMoves(_ sender: UISlider!) {
-        let roundedValue = String(format: "%.2f", sender.value)
+        let roundedValue = bmiService.roundToTwoDecimalPlaces(value: sender.value)
         lowerSliderLabels.configure(viewModel: .init(
             leftSideText: Localizable.MainViewController.lefttLowerText,
             rightSideText: Localizable.MainViewController.rightLowerText(roundedValue)
@@ -42,7 +43,12 @@ class MainViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-        print("Button tapped!")
+        let bmi = bmiService.calculateBMI(
+            weight: upperSlider.value,
+            height: lowerSlider.value
+        )
+        let resultViewController = ResultViewController(result: bmi)
+        navigationController?.pushViewController(resultViewController, animated: true)
     }
     
     private func setupStyling() {
@@ -79,21 +85,27 @@ class MainViewController: UIViewController {
         ))
         
         upperSlider.configure(viewModel: .init(
-            action: #selector(upperSliderMoves)
+            action: #selector(upperSliderMoves),
+            minimumValue: 20,
+            maximumValue: 200,
+            value: 80
         ))
         
         lowerSlider.configure(viewModel: .init(
-            action: #selector(lowerSliderMoves)
+            action: #selector(lowerSliderMoves),
+            minimumValue: 50,
+            maximumValue: 250,
+            value: 170
         ))
         
         upperSliderLabels.configure(viewModel: .init(
             leftSideText: Localizable.MainViewController.leftUpperText,
-            rightSideText: Localizable.MainViewController.rightUpperText("100")
+            rightSideText: Localizable.MainViewController.rightUpperText("80")
         ))
         
         lowerSliderLabels.configure(viewModel: .init(
             leftSideText: Localizable.MainViewController.lefttLowerText,
-            rightSideText: Localizable.MainViewController.rightLowerText("100")
+            rightSideText: Localizable.MainViewController.rightLowerText("170")
         ))
     }
     

@@ -31,6 +31,12 @@ internal enum Localizable {
     /// Calculate your BMI
     internal static let titleLabelText = Localizable.tr("Localizable", "mainViewController.titleLabelText", fallback: "Calculate your BMI")
   }
+  internal enum ResultViewController {
+    /// Recalculate
+    internal static let buttonTitle = Localizable.tr("Localizable", "resultViewController.buttonTitle", fallback: "Recalculate")
+    /// Your Result
+    internal static let tittleLabel = Localizable.tr("Localizable", "resultViewController.tittleLabel", fallback: "Your Result")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

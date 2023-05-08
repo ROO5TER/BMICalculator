@@ -16,6 +16,8 @@
 		184A2D4729F841F500033C85 /* Localizable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A2D4629F841F500033C85 /* Localizable.generated.swift */; };
 		184A2D4929F8444900033C85 /* SharedAsset.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A2D4829F8444900033C85 /* SharedAsset.generated.swift */; };
 		184A2D4C29F849B000033C85 /* BMIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A2D4B29F849B000033C85 /* BMIButton.swift */; };
+		1858C6D02A097DE200B32520 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858C6CF2A097DE200B32520 /* ResultViewController.swift */; };
+		1858C6D22A09946500B32520 /* BMIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858C6D12A09946500B32520 /* BMIService.swift */; };
 		186C3D3729F9628C008A722C /* BMISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C3D3629F9628C008A722C /* BMISlider.swift */; };
 		189C2B5729FC24CD0015CF51 /* BMISliderLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */; };
 		18EA3F7F2A0562D2000B070B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */; };
@@ -33,6 +35,8 @@
 		184A2D4629F841F500033C85 /* Localizable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.generated.swift; sourceTree = "<group>"; };
 		184A2D4829F8444900033C85 /* SharedAsset.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedAsset.generated.swift; sourceTree = "<group>"; };
 		184A2D4B29F849B000033C85 /* BMIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIButton.swift; sourceTree = "<group>"; };
+		1858C6CF2A097DE200B32520 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		1858C6D12A09946500B32520 /* BMIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIService.swift; sourceTree = "<group>"; };
 		186C3D3629F9628C008A722C /* BMISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISlider.swift; sourceTree = "<group>"; };
 		189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISliderLabels.swift; sourceTree = "<group>"; };
 		18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 				07427D5129E97AE9009A6A72 /* AppDelegate.swift */,
 				07427D5329E97AE9009A6A72 /* SceneDelegate.swift */,
 				07427D5529E97AE9009A6A72 /* MainViewController.swift */,
+				1858C6CF2A097DE200B32520 /* ResultViewController.swift */,
 				07427D5F29E97AEA009A6A72 /* Info.plist */,
 			);
 			path = BMICalculator;
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */,
+				1858C6D12A09946500B32520 /* BMIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -205,9 +211,11 @@
 			files = (
 				189C2B5729FC24CD0015CF51 /* BMISliderLabels.swift in Sources */,
 				07427D5629E97AE9009A6A72 /* MainViewController.swift in Sources */,
+				1858C6D22A09946500B32520 /* BMIService.swift in Sources */,
 				184A2D4729F841F500033C85 /* Localizable.generated.swift in Sources */,
 				07427D5229E97AE9009A6A72 /* AppDelegate.swift in Sources */,
 				186C3D3729F9628C008A722C /* BMISlider.swift in Sources */,
+				1858C6D02A097DE200B32520 /* ResultViewController.swift in Sources */,
 				184A2D4929F8444900033C85 /* SharedAsset.generated.swift in Sources */,
 				184A2D4C29F849B000033C85 /* BMIButton.swift in Sources */,
 				18EA3F7F2A0562D2000B070B /* UIViewExtensions.swift in Sources */,

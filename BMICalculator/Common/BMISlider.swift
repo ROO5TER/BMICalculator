@@ -9,10 +9,13 @@ import UIKit
 
 struct BMISliderViewModel {
     let action: Selector
+    let minimumValue: Float
+    let maximumValue: Float
+    let value: Float
 }
 
 final class BMISlider: UISlider {
-
+    
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupStyling()
@@ -29,13 +32,13 @@ final class BMISlider: UISlider {
     private func setupSliderStyling() {
         thumbTintColor = .purple
         tintColor = .purple
-        minimumValue = 0
-        maximumValue = 200
-        value = 100
         addShadow(color: .white)
     }
     
     func configure(viewModel: BMISliderViewModel) {
+        minimumValue = viewModel.minimumValue
+        maximumValue = viewModel.maximumValue
+        value = viewModel.value
         addTarget(BMISlider(), action: viewModel.action, for: .valueChanged)
     }
 }
