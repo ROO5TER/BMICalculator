@@ -13,11 +13,24 @@ class BMIService {
         return roundedValue
     }
     
-    func calculateBMI(weight: Float, height: Float) -> String {
+    func specifyWeightClassification(weight: Float, height: Float) -> WeightClassification {
+        let bmi = calculateBMI(weight: weight, height: height)
+        let roundedBmi = roundToTwoDecimalPlaces(value: bmi)
+        if (...18.59).contains(bmi) {
+            return .underweight(value: roundedBmi)
+        } else if (18.6...24.99).contains(bmi) {
+            return .healthyWeight(value: roundedBmi)
+        } else if (25...29.99).contains(bmi) {
+            return .overweight(value: roundedBmi)
+        } else {
+            return .obesity(value: roundedBmi)
+        }
+    }
+    
+    private func calculateBMI(weight: Float,height: Float) -> Float {
         let heightInMeters = cmToMeters(value: height)
         let bmi = weight / (heightInMeters * heightInMeters)
-        let roundedBmi = roundToTwoDecimalPlaces(value: bmi)
-        return roundedBmi
+        return bmi
     }
     
     private func cmToMeters(value: Float) -> Float {

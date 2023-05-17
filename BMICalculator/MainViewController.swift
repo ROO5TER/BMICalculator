@@ -43,11 +43,11 @@ class MainViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-        let bmi = bmiService.calculateBMI(
+        let clacification = bmiService.specifyWeightClassification(
             weight: upperSlider.value,
             height: lowerSlider.value
         )
-        let resultViewController = ResultViewController(result: bmi)
+        let resultViewController = ResultViewController(result: clacification)
         navigationController?.pushViewController(resultViewController, animated: true)
     }
     

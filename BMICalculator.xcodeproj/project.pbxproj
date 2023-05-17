@@ -21,6 +21,7 @@
 		186C3D3729F9628C008A722C /* BMISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C3D3629F9628C008A722C /* BMISlider.swift */; };
 		189C2B5729FC24CD0015CF51 /* BMISliderLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */; };
 		18EA3F7F2A0562D2000B070B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */; };
+		18F645BA2A0C2310001ECC19 /* WeightClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F645B92A0C2310001ECC19 /* WeightClassification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		186C3D3629F9628C008A722C /* BMISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISlider.swift; sourceTree = "<group>"; };
 		189C2B5629FC24CD0015CF51 /* BMISliderLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMISliderLabels.swift; sourceTree = "<group>"; };
 		18EA3F7E2A0562D2000B070B /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		18F645B92A0C2310001ECC19 /* WeightClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightClassification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		07427D5029E97AE9009A6A72 /* BMICalculator */ = {
 			isa = PBXGroup;
 			children = (
+				18F645B82A0C2146001ECC19 /* Models */,
 				18EA3F7D2A0562B9000B070B /* Services */,
 				184A2D4A29F8493400033C85 /* Common */,
 				184A2D3B29F83E7800033C85 /* Resources */,
@@ -137,6 +140,14 @@
 				1858C6D12A09946500B32520 /* BMIService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		18F645B82A0C2146001ECC19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18F645B92A0C2310001ECC19 /* WeightClassification.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 			files = (
 				189C2B5729FC24CD0015CF51 /* BMISliderLabels.swift in Sources */,
 				07427D5629E97AE9009A6A72 /* MainViewController.swift in Sources */,
+				18F645BA2A0C2310001ECC19 /* WeightClassification.swift in Sources */,
 				1858C6D22A09946500B32520 /* BMIService.swift in Sources */,
 				184A2D4729F841F500033C85 /* Localizable.generated.swift in Sources */,
 				07427D5229E97AE9009A6A72 /* AppDelegate.swift in Sources */,

@@ -8,13 +8,14 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    private let result: String
+    private let result: WeightClassification
     private let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
     private let titleLabel = UILabel()
     private let resultLabel = UILabel()
+    private let resultImage = UIImageView()
     private let button: BMIButton = .init()
     
-    init(result: String) {
+    init(result: WeightClassification) {
         self.result = result
         super.init(nibName: nil, bundle: nil)
     }
@@ -47,6 +48,7 @@ class ResultViewController: UIViewController {
         setupBackground()
         setupTitleLabel()
         setupResultLabel()
+        setupResultImage()
     }
     
     private func hideBackButtonItem() {
@@ -68,23 +70,32 @@ class ResultViewController: UIViewController {
     }
     
     private func setupResultLabel() {
-        resultLabel.text = result
-        resultLabel.textColor = .white
+        resultLabel.text = result.stringValue
+        resultLabel.textColor = result.color
         resultLabel.textAlignment = .center
         resultLabel.font = .systemFont(ofSize: 50, weight: .bold)
         resultLabel.addShadow(color: .purple)
+    }
+    
+    private func setupResultImage() {
+        resultImage.image = result.image
+        resultImage.tintColor = result.color
+        resultImage.contentMode = .scaleAspectFit
+        resultImage.addShadow(color: .white)
     }
     
     private func addSubviews() {
         self.view.addSubview(backgroundImage)
         self.view.addSubview(titleLabel)
         self.view.addSubview(resultLabel)
+        self.view.addSubview(resultImage)
         self.view.addSubview(button)
     }
     
     private func addConstraints() {
         addTitleLabelConstraints()
         addResultLabelConstraints()
+        addResultImageConstraints()
         addButtonConstraints()
     }
     
@@ -93,7 +104,7 @@ class ResultViewController: UIViewController {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 350)
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
         ])
     }
     
@@ -103,6 +114,16 @@ class ResultViewController: UIViewController {
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             resultLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20)
+        ])
+    }
+    
+    private func addResultImageConstraints() {
+        resultImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            resultImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            resultImage.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20),
+            resultImage.heightAnchor.constraint(equalToConstant: 100),
+            resultImage.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
     
