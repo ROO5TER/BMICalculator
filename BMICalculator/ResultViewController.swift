@@ -13,6 +13,7 @@ class ResultViewController: UIViewController {
     private let titleLabel = UILabel()
     private let resultLabel = UILabel()
     private let resultImage = UIImageView()
+    private let adviceLabel = UILabel()
     private let button: BMIButton = .init()
     
     init(result: WeightClassification) {
@@ -49,6 +50,7 @@ class ResultViewController: UIViewController {
         setupTitleLabel()
         setupResultLabel()
         setupResultImage()
+        setupAdviceLabel()
     }
     
     private func hideBackButtonItem() {
@@ -84,11 +86,21 @@ class ResultViewController: UIViewController {
         resultImage.addShadow(color: .white)
     }
     
+    private func setupAdviceLabel() {
+        adviceLabel.text = result.advice
+        adviceLabel.textColor = .white
+        adviceLabel.textAlignment = .center
+        adviceLabel.font = .systemFont(ofSize: 22, weight: .regular)
+        adviceLabel.numberOfLines = .max
+        adviceLabel.addShadow(color: .purple)
+    }
+    
     private func addSubviews() {
         self.view.addSubview(backgroundImage)
         self.view.addSubview(titleLabel)
         self.view.addSubview(resultLabel)
         self.view.addSubview(resultImage)
+        self.view.addSubview(adviceLabel)
         self.view.addSubview(button)
     }
     
@@ -96,6 +108,7 @@ class ResultViewController: UIViewController {
         addTitleLabelConstraints()
         addResultLabelConstraints()
         addResultImageConstraints()
+        addAdviceLabelConstraints()
         addButtonConstraints()
     }
     
@@ -124,6 +137,15 @@ class ResultViewController: UIViewController {
             resultImage.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20),
             resultImage.heightAnchor.constraint(equalToConstant: 100),
             resultImage.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    
+    private func addAdviceLabelConstraints() {
+        adviceLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            adviceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            adviceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            adviceLabel.topAnchor.constraint(equalTo: resultImage.bottomAnchor, constant: 20)
         ])
     }
     

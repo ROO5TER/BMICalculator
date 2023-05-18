@@ -29,9 +29,9 @@ public enum SharedAsset {
   public static let buttonBackground = ImageAsset(name: "ButtonBackground")
   public static let dumbellIcon = ImageAsset(name: "DumbellIcon")
   public static let goodWeight = ImageAsset(name: "GoodWeight")
-  public static let lowWeight = ImageAsset(name: "LowWeight")
   public static let obesity = ImageAsset(name: "Obesity")
   public static let overweight = ImageAsset(name: "Overweight")
+  public static let underweight = ImageAsset(name: "Underweight")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
