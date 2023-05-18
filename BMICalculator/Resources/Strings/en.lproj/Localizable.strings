@@ -18,3 +18,10 @@
 
 "resultViewController.buttonTitle" = "Recalculate";
 "resultViewController.tittleLabel" = "Your Result";
+
+//MARK: WeightClassification
+
+"weightClassification.advice.underweight" = "Focus on consuming a balanced diet that includes nutrient-dense foods to support overall health";
+"weightClassification.advice.healthyweight" = "Continue to monitor your weight and make adjustments as needed to stay within this range";
+"weightClassification.advice.overweight" = "Focus on portion control, reducing calorie intake, and making healthier food choices";
+"weightClassification.advice.obesity" = "Engage in regular physical activity, combining both aerobic exercises and strength training to support weight loss and muscle maintenance";

@@ -42,13 +42,26 @@ enum WeightClassification {
     var image: UIImage {
         switch self {
         case .underweight:
-            return SharedAsset.lowWeight.image
+            return SharedAsset.underweight.image
         case .healthyWeight:
             return SharedAsset.goodWeight.image
         case .overweight:
             return SharedAsset.overweight.image
         case .obesity:
             return SharedAsset.obesity.image
+        }
+    }
+    
+    var advice: String {
+        switch self {
+        case .underweight:
+            return Localizable.WeightClassification.Advice.underweight
+        case .healthyWeight:
+            return Localizable.WeightClassification.Advice.healthyweight
+        case .overweight:
+            return Localizable.WeightClassification.Advice.overweight
+        case .obesity:
+            return Localizable.WeightClassification.Advice.obesity
         }
     }
 }

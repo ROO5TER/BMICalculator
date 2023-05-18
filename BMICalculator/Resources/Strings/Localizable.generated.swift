@@ -37,6 +37,18 @@ internal enum Localizable {
     /// Your Result
     internal static let tittleLabel = Localizable.tr("Localizable", "resultViewController.tittleLabel", fallback: "Your Result")
   }
+  internal enum WeightClassification {
+    internal enum Advice {
+      /// Continue to monitor your weight and make adjustments as needed to stay within this range
+      internal static let healthyweight = Localizable.tr("Localizable", "weightClassification.advice.healthyweight", fallback: "Continue to monitor your weight and make adjustments as needed to stay within this range")
+      /// Engage in regular physical activity, combining both aerobic exercises and strength training to support weight loss and muscle maintenance
+      internal static let obesity = Localizable.tr("Localizable", "weightClassification.advice.obesity", fallback: "Engage in regular physical activity, combining both aerobic exercises and strength training to support weight loss and muscle maintenance")
+      /// Focus on portion control, reducing calorie intake, and making healthier food choices
+      internal static let overweight = Localizable.tr("Localizable", "weightClassification.advice.overweight", fallback: "Focus on portion control, reducing calorie intake, and making healthier food choices")
+      /// Focus on consuming a balanced diet that includes nutrient-dense foods to support overall health
+      internal static let underweight = Localizable.tr("Localizable", "weightClassification.advice.underweight", fallback: "Focus on consuming a balanced diet that includes nutrient-dense foods to support overall health")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
