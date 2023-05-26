@@ -9,7 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     private let bmiService = BMIService()
-    private let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+    private let scrollView = UIScrollView()
+    private let backgroundImage = UIImageView()
     private let mainViewIcon = UIImageView()
     private let titleLabel = UILabel()
     private let button: BMIButton = .init()
@@ -20,12 +21,13 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.hidesBarsOnSwipe = true
         setupStyling()
         configure()
         addSubviews()
         addConstraints()
     }
-    
+
     @objc func upperSliderMoves(_ sender: UISlider!) {
         let roundedValue = bmiService.roundToTwoDecimalPlaces(value: sender.value)
         upperSliderLabels.configure(viewModel: .init(
@@ -52,14 +54,29 @@ class MainViewController: UIViewController {
     }
     
     private func setupStyling() {
+        setupScrollView()
         setupBackground()
         setupTitleLabel()
         setupMainIcon()
     }
     
+    private func setupScrollView() {
+        scrollView.contentSize = CGSize(
+            width: scrollView.bounds.width,
+            height: 900
+        )
+        scrollView.isScrollEnabled = true
+    }
+    
     private func setupBackground() {
         backgroundImage.image = SharedAsset.background.image
         backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: UIScreen.main.bounds.width,
+            height: -200
+        )
         backgroundImage.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
@@ -110,89 +127,110 @@ class MainViewController: UIViewController {
     }
     
     private func addSubviews() {
-        self.view.addSubview(backgroundImage)
-        self.view.addSubview(titleLabel)
-        self.view.addSubview(mainViewIcon)
-        self.view.addSubview(button)
-        self.view.addSubview(upperSlider)
-        self.view.addSubview(lowerSlider)
-        self.view.addSubview(upperSliderLabels)
-        self.view.addSubview(lowerSliderLabels)
+        view.addSubview(scrollView)
+        scrollView.addSubview(backgroundImage)
+        scrollView.addSubview(titleLabel)
+        scrollView.addSubview(mainViewIcon)
+        scrollView.addSubview(button)
+        scrollView.addSubview(upperSlider)
+        scrollView.addSubview(lowerSlider)
+        scrollView.addSubview(upperSliderLabels)
+        scrollView.addSubview(lowerSliderLabels)
         
     }
     
     private func addConstraints() {
+        addScrollViewConstraints()
         addTitleLabelConstraints()
         addIconImageConstraints()
-        addButtonConstraints()
-        addUpperSliderConstraints()
-        addLowerSliderConstraints()
         addUpperLabelsConstraints()
+        addUpperSliderConstraints()
         addLowerLabelsConstraints()
+        addLowerSliderConstraints()
+        addButtonConstraints()
+    }
+    
+    private func addScrollViewConstraints() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor ),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    private func addBackgroundImageConstraints() {
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backgroundImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            backgroundImage.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            backgroundImage.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+            backgroundImage.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
     }
     
     private func addTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150)
+            titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20)
         ])
     }
     
     private func addIconImageConstraints() {
         mainViewIcon.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mainViewIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainViewIcon.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             mainViewIcon.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
             mainViewIcon.heightAnchor.constraint(equalToConstant: 200),
             mainViewIcon.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
     
-    private func addButtonConstraints() {
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private func addUpperLabelsConstraints() {
+        upperSliderLabels.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
-            button.heightAnchor.constraint(equalToConstant: 60)
+            upperSliderLabels.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            upperSliderLabels.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
+            upperSliderLabels.topAnchor.constraint(equalTo: mainViewIcon.bottomAnchor, constant: 100)
         ])
     }
     
     private func addUpperSliderConstraints() {
-        lowerSlider.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            lowerSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            lowerSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            lowerSlider.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -60)
-        ])
-    }
-    
-    private func addLowerSliderConstraints() {
         upperSlider.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            upperSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            upperSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            upperSlider.bottomAnchor.constraint(equalTo: lowerSlider.topAnchor, constant: -60)
-        ])
-    }
-    
-    private func addUpperLabelsConstraints() {
-        lowerSliderLabels.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            lowerSliderLabels.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            lowerSliderLabels.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            lowerSliderLabels.bottomAnchor.constraint(equalTo: lowerSlider.topAnchor, constant: -10)
+            upperSlider.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            upperSlider.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
+            upperSlider.topAnchor.constraint(equalTo: upperSliderLabels.bottomAnchor, constant: 20)
         ])
     }
     
     private func addLowerLabelsConstraints() {
-        upperSliderLabels.translatesAutoresizingMaskIntoConstraints = false
+        lowerSliderLabels.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            upperSliderLabels.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            upperSliderLabels.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            upperSliderLabels.bottomAnchor.constraint(equalTo: upperSlider.topAnchor, constant: -10)
+            lowerSliderLabels.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            lowerSliderLabels.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
+            lowerSliderLabels.topAnchor.constraint(equalTo: upperSlider.bottomAnchor, constant: 60)
+        ])
+    }
+    
+    private func addLowerSliderConstraints() {
+        lowerSlider.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lowerSlider.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            lowerSlider.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
+            lowerSlider.topAnchor.constraint(equalTo: lowerSliderLabels.bottomAnchor, constant: 20)
+        ])
+    }
+    
+    private func addButtonConstraints() {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            button.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
+            button.topAnchor.constraint(equalTo: lowerSlider.bottomAnchor, constant: 60),
+            button.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }
