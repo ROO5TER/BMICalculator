@@ -21,7 +21,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.hidesBarsOnSwipe = true
         setupStyling()
         configure()
         addSubviews()
@@ -63,7 +62,7 @@ class MainViewController: UIViewController {
     private func setupScrollView() {
         scrollView.contentSize = CGSize(
             width: scrollView.bounds.width,
-            height: 900
+            height: 850
         )
         scrollView.isScrollEnabled = true
     }
@@ -75,7 +74,7 @@ class MainViewController: UIViewController {
             x: 0,
             y: 0,
             width: UIScreen.main.bounds.width,
-            height: -200
+            height: -100
         )
         backgroundImage.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
@@ -84,7 +83,7 @@ class MainViewController: UIViewController {
         titleLabel.text = Localizable.MainViewController.titleLabelText
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
-        titleLabel.font = .systemFont(ofSize: 30, weight: .bold)
+        titleLabel.font = .systemFont(ofSize: 32, weight: .bold)
         titleLabel.addShadow(color: .purple)
     }
     
@@ -174,7 +173,7 @@ class MainViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20)
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50)
         ])
     }
     
@@ -202,7 +201,7 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             upperSlider.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             upperSlider.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
-            upperSlider.topAnchor.constraint(equalTo: upperSliderLabels.bottomAnchor, constant: 20)
+            upperSlider.topAnchor.constraint(equalTo: upperSliderLabels.bottomAnchor, constant: 15)
         ])
     }
     
@@ -211,7 +210,7 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             lowerSliderLabels.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             lowerSliderLabels.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
-            lowerSliderLabels.topAnchor.constraint(equalTo: upperSlider.bottomAnchor, constant: 60)
+            lowerSliderLabels.topAnchor.constraint(equalTo: upperSlider.bottomAnchor, constant: 40)
         ])
     }
     
@@ -220,7 +219,7 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             lowerSlider.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             lowerSlider.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
-            lowerSlider.topAnchor.constraint(equalTo: lowerSliderLabels.bottomAnchor, constant: 20)
+            lowerSlider.topAnchor.constraint(equalTo: lowerSliderLabels.bottomAnchor, constant: 15)
         ])
     }
     
@@ -229,7 +228,7 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             button.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
-            button.topAnchor.constraint(equalTo: lowerSlider.bottomAnchor, constant: 60),
+            button.topAnchor.constraint(equalTo: lowerSlider.bottomAnchor, constant: 125),
             button.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
