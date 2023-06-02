@@ -9,12 +9,17 @@ import UIKit
 
 class ResultViewController: UIViewController {
     private let result: WeightClassification
+    private let scrollView = UIScrollView()
+    private let stackView = UIStackView()
     private let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+    private let topSpacerLabel = UILabel()
     private let titleLabel = UILabel()
     private let resultLabel = UILabel()
     private let resultImage = UIImageView()
     private let adviceLabel = UILabel()
     private let button: BMIButton = .init()
+    private let bottomSpacerLabel = UILabel()
+    private let screenWidth = UIScreen.main.bounds.width
     
     init(result: WeightClassification) {
         self.result = result
@@ -46,6 +51,8 @@ class ResultViewController: UIViewController {
     
     private func setupStyling() {
         hideBackButtonItem()
+        setupScrollView()
+        setupStackView()
         setupBackground()
         setupTitleLabel()
         setupResultLabel()
@@ -55,6 +62,16 @@ class ResultViewController: UIViewController {
     
     private func hideBackButtonItem() {
         navigationItem.hidesBackButton = true
+    }
+    
+    private func setupScrollView() {
+        scrollView.isScrollEnabled = true
+    }
+    
+    private func setupStackView() {
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 20
     }
     
     private func setupBackground() {
@@ -67,7 +84,7 @@ class ResultViewController: UIViewController {
         titleLabel.text = Localizable.ResultViewController.tittleLabel
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
-        titleLabel.font = .systemFont(ofSize: 50, weight: .bold)
+        titleLabel.font = .systemFont(ofSize: 55, weight: .bold)
         titleLabel.addShadow(color: .purple)
     }
     
@@ -75,7 +92,7 @@ class ResultViewController: UIViewController {
         resultLabel.text = result.stringValue
         resultLabel.textColor = result.color
         resultLabel.textAlignment = .center
-        resultLabel.font = .systemFont(ofSize: 50, weight: .bold)
+        resultLabel.font = .systemFont(ofSize: 55, weight: .bold)
         resultLabel.addShadow(color: .purple)
     }
     
@@ -90,72 +107,118 @@ class ResultViewController: UIViewController {
         adviceLabel.text = result.advice
         adviceLabel.textColor = .white
         adviceLabel.textAlignment = .center
-        adviceLabel.font = .systemFont(ofSize: 22, weight: .regular)
+        adviceLabel.font = .systemFont(ofSize: 24, weight: .regular)
         adviceLabel.numberOfLines = .max
         adviceLabel.addShadow(color: .purple)
     }
     
     private func addSubviews() {
-        self.view.addSubview(backgroundImage)
-        self.view.addSubview(titleLabel)
-        self.view.addSubview(resultLabel)
-        self.view.addSubview(resultImage)
-        self.view.addSubview(adviceLabel)
-        self.view.addSubview(button)
+        view.addSubview(backgroundImage)
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+        stackView.addArrangedSubview(topSpacerLabel)
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(resultLabel)
+        stackView.addArrangedSubview(resultImage)
+        stackView.addArrangedSubview(adviceLabel)
+        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(bottomSpacerLabel)
     }
     
     private func addConstraints() {
+        addScrollViewConstraints()
+        addStackViewConstraints()
+        addBackgroundImageConstraints()
+        addTopSpacerLabelConstraints()
         addTitleLabelConstraints()
         addResultLabelConstraints()
         addResultImageConstraints()
         addAdviceLabelConstraints()
         addButtonConstraints()
+        addBottomSpacerLabelConstraints()
+    }
+    
+    private func addScrollViewConstraints() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    private func addStackViewConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: screenWidth),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+    }
+    
+    private func addBackgroundImageConstraints() {
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backgroundImage.widthAnchor.constraint(equalToConstant: screenWidth),
+            backgroundImage.topAnchor.constraint(equalTo: stackView.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
+        ])
+    }
+    
+    private func addTopSpacerLabelConstraints() {
+        topSpacerLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topSpacerLabel.heightAnchor.constraint(equalToConstant: 60),
+        ])
     }
     
     private func addTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
+            titleLabel.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
     private func addResultLabelConstraints() {
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            resultLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20)
+            resultLabel.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
     private func addResultImageConstraints() {
+        stackView.setCustomSpacing(60, after: resultImage)
         resultImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            resultImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            resultImage.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20),
-            resultImage.heightAnchor.constraint(equalToConstant: 100),
-            resultImage.widthAnchor.constraint(equalToConstant: 100)
+            resultImage.widthAnchor.constraint(equalToConstant: 250),
+            resultImage.heightAnchor.constraint(equalToConstant: 250)
         ])
     }
     
     private func addAdviceLabelConstraints() {
         adviceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            adviceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            adviceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            adviceLabel.topAnchor.constraint(equalTo: resultImage.bottomAnchor, constant: 20)
+            adviceLabel.widthAnchor.constraint(equalToConstant: screenWidth - 60),
+            adviceLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 150)
         ])
     }
     
     private func addButtonConstraints() {
+        stackView.setCustomSpacing(60, after: adviceLabel)
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
-            button.heightAnchor.constraint(equalToConstant: 60)
+            button.widthAnchor.constraint(equalToConstant: screenWidth - 60),
+            button.heightAnchor.constraint(equalToConstant: 60),
+        ])
+    }
+    
+    private func addBottomSpacerLabelConstraints() {
+        bottomSpacerLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bottomSpacerLabel.heightAnchor.constraint(equalToConstant: 60),
         ])
     }
 }
